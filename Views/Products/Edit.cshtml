@@ -1,0 +1,96 @@
+﻿@model ST10134934_CLDV6211_Part_Two.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ArtId" />
+            <div class="form-group">
+                <label asp-for="ArtName" class="control-label"></label>
+                <input asp-for="ArtName" class="form-control" />
+                <span asp-validation-for="ArtName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtCreatorName" class="control-label"></label>
+                <input asp-for="ArtCreatorName" class="form-control" />
+                <span asp-validation-for="ArtCreatorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtPrice" class="control-label"></label>
+                <input asp-for="ArtPrice" class="form-control" />
+                <span asp-validation-for="ArtPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArtCategory" class="control-label"></label>
+                <input asp-for="ArtCategory" class="form-control" />
+                <span asp-validation-for="ArtCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ArtAvailability" /> @Html.DisplayNameFor(model => model.ArtAvailability)
+                </label>
+            </div>
+
+
+           <div class="form-group">
+                <label asp-for="ArtImage" class="control-label"></label><br />
+                @if (!string.IsNullOrEmpty(Model.ArtImage))
+                {
+                    <img src="data:image;base64,@Model.ArtImage" alt="Current Image" style="max-width: 200px; max-height: 200px;" /><br />
+                }
+                <input asp-for="ArtImage" type="file" name="ImageFile" class="form-control" />
+                <span asp-validation-for="ArtImage" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script>
+        // Function to check if any input field is empty or null
+        function checkInputs() {
+            var inputs = document.querySelectorAll('input[type="text"], input[type="file"], select');
+            var isValid = true;
+
+            inputs.forEach(function (input) {
+                if (!input.value && input.getAttribute('type') !== 'file') {
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                alert('Please fill in all fields.');
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission if all fields are filled
+        }
+
+        // Add event listener for form submission
+        document.querySelector('form').addEventListener('submit', function (event) {
+            if (!checkInputs()) {
+                event.preventDefault(); // Prevent form submission if any field is empty
+            }
+        });
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

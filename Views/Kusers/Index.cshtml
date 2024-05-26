@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ST10134934_CLDV6211_Part_Two.Models.Kuser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Register users</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KuserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KuserEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KuserType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KuserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KuserEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KuserType)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.KuserId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.KuserId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.KuserId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

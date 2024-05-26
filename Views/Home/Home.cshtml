@@ -1,0 +1,217 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<hmtl>
+    <header class="text-center">
+
+        <!--    <h1 class="display-4"> KHUMALOCRAFT EMPORIUM </h1>
+
+            <link rel="stylesheet" href="Home.css" type="text/css" /> -->
+
+    </header>
+
+
+    <body>
+
+        <main>
+
+            <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <video autoplay muted loop>
+                            <source src="~/lib/Image/CLDV6211_PartOneImgHomeCA1.mp4" type="video/mp4" />
+                        </video>
+                        <div class="container">
+                            <div class="carousel-caption text-start">
+                                <h1 class="CAH1">View Our ArtWork.</h1>
+                                <p class="CAH1">Pick from thousands of pieces.</p>
+                                <p>
+                                    <a asp-area="" asp-controller="Products" asp-action="Index">
+                                        <button class="btn_btn-outline-secondary" type="button">View Artwork </button>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="carousel-item">
+                        <video autoplay muted loop>
+                            <source src="~/lib/Image/CLDV6211_PartOneImgHomeCA4.mp4" type="video/mp4" />
+                        </video>
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>Want to know more about KhumaloCraft?</h1>
+                                <p>You may like what you learn</p>
+                                <p>
+                                    <a asp-area="" asp-controller="Home" asp-action="AboutUs">
+                                        <button class="btn_btn-outline-secondary" type="button">Learn More </button>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="carousel-item">
+                        <video autoplay muted loop>
+                            <source src="~/lib/Image/CLDV6211_PartOneImgHomeCA2.mp4" type="video/mp4" />
+                        </video>
+                        <div class="container">
+                            <div class="carousel-caption text-end">
+                                <h1>Want to get in touch with KhumaloCraft</h1>
+                                <p>You can contact us with a few simple clicks </p>
+                                <p>
+                                    <a asp-area="" asp-controller="Home" asp-action="ContactUs">
+                                        <button class="btn_btn-outline-secondary" type="button">Contact Us </button>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <h1 class="FA"> Featured Artisans </h1>
+
+
+
+            <div class="container marketing">
+
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="~/lib/Image/CLDV6211_HomeHeadShotTwo.jpg" />
+
+                        <h2 class="fw-normal">Seraphina Rivers</h2>
+                        <p>
+                            A visionary artisan, weaving tales of nature and emotion through her ceramics, paintings, and jewelry
+                        </p>
+                        <a id="link" href="#elementTargetOne">
+                            <button class="btn_btn-outline-secondary" type="button">View Featured Artwork &raquo;</button>
+                        </a>
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="~/lib/Image/CLDV6211_HomeHeadShotThree.jpg" />
+
+                        <h2 class="fw-normal">Thaddeus Silvermane</h2>
+                        <p>
+                            A masterful artisan blending tradition and innovation in his exquisite brushwork, invoking a sense of timeless elegance.
+                        </p>
+                        <a id="link" href="#elementTargetTwo">
+                            <button class="btn_btn-outline-secondary" type="button">View Featured Artwork &raquo;</button>
+                        </a>
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="~/lib/Image/CLDV6211_HomeHeadShotFour.jpg" />
+
+                        <h2 class="fw-normal">Magnus Blackwood</h2>
+                        <p>
+                            A daring artisan pushing the boundaries of creativity with his avant-garde paintings, infusing each piece with mystery and intrigue.
+                        </p>
+                        <a id="link" href="#elementTargetThree">
+                            <button class="btn_btn-outline-secondary" type="button">View Featured Artwork &raquo;</button>
+                        </a>
+                    </div>
+
+
+                </div>
+
+
+                <hr class="featurette-divider">
+
+                <div id="elementTargetOne" class="row featurette">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading fw-normal lh-1">
+                            Seraphina Rivers:
+                            <span class="text-body-secondary">
+                                Suffocating Silence
+                            </span>
+                        </h2>
+                        <p class="lead">
+                            "Suffocating Silence" is a haunting sculpture that confronts viewers with the stark reality of suffocation and isolation. A human head emerges from a block of stone, its features contorted in agony beneath a transparent plastic bag. The bag, cinched tightly around the face, symbolizes the suffocating grip of despair and the silence that accompanies struggles with mental health or societal pressures. Despite the lifelike detail of the sculpted face, the eyes remain obscured, emphasizing the loss of identity and voice in the face of overwhelming challenges. Through this powerful imagery, "Suffocating Silence" serves as a poignant reminder of the urgent need to break free from the constraints that threaten to suffocate our humanity.
+                        </p>
+                    </div>
+                    <div class="col-md-5">
+                        <img width="100%" height="100%" src="~/lib/Image/CLDV6211_PartOneImgHome3.webp" />
+                    </div>
+                </div>
+
+
+                <hr class="featurette-divider">
+
+
+                <div id="elementTargetTwo" class="row featurette">
+                    <div class="col-md-7 order-md-2">
+                        <h2 class="featurette-heading fw-normal lh-1">
+                            Thaddeus Silvermane:  <span class="text-body-secondary">
+                                Azure Serenity
+                            </span>
+                        </h2>
+                        <p class="lead">
+                            "Azure Serenity" is a captivating abstract painting that evokes the tranquil essence of water. Shades of blue flow seamlessly across the canvas, resembling serene waters in motion. Each brushstroke creates a sense of fluidity and calm, inviting viewers to immerse themselves in a tranquil oasis of beauty and peace.
+                        </p>
+                    </div>
+                    <div class="col-md-5 order-md-1">
+                        <img width="100%" height="100%" src="~/lib/Image/CLDV6211_PartOneImgHome2.jpg" />
+
+                    </div>
+                </div>
+
+                <hr class="featurette-divider">
+
+                <div id="elementTargetThree" class="row featurette">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading fw-normal lh-1">
+                            Magnus Blackwood:
+                            <span class="text-body-secondary"> Whispers of Eternity </span>
+                        </h2>
+                        <p class="lead">
+                            In "Whispers of Eternity," two figures stand entwined beneath a canopy of shimmering stars. Their embrace is a tender echo of the universe's embrace around them, as galaxies twirl in a dance of cosmic allure. Soft hues of twilight meld with the deep velvet of space, creating a scene where time stands still, and the boundary between mortal and celestial blurs into a seamless tapestry of love and eternity.
+                        </p>
+                    </div>
+                    <div class="col-md-5">
+                        <img width="100%" height="100%" src="~/lib/Image/CLDV6211_PartOneImgHome1.jpg" />
+
+                    </div>
+                </div>
+
+                <hr class="featurette-divider">
+
+                <!-- /END THE FEATURETTES -->
+
+            </div><!-- /.container -->
+            <!-- FOOTER -->
+
+        </main>
+        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+
+</hmtl>

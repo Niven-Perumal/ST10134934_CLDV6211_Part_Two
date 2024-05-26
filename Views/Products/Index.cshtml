@@ -1,0 +1,98 @@
+﻿@model IEnumerable<ST10134934_CLDV6211_Part_Two.Models.Product>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+<head>
+    <title>KhumaloCraft Emporium</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="MyWork.css" type="text/css" />
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="~/lib/Image/CLDV6211 - Logo.png" alt="">
+                </div>
+                <div class="profile-user-settings">
+                    <h1 class="profile-user-name">KhumaloCraft Emporium</h1>
+                    <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
+                </div>
+                <div class="profile-stats">
+                    <ul>
+                        <li><span class="profile-stat-count">1.5k</span> artisans</li>
+                        <li><span class="profile-stat-count">10k</span> Artwork</li>
+                        <li><span class="profile-stat-count">5k+</span> Customers</li>
+                    </ul>
+                </div>
+                <div class="profile-bio">
+                    <p><span class="profile-real-name">KhumaloCraft Emporium:</span> View 1000s of art work on our ever-expanding marketplace</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <p>
+ @if(SignInManager.IsSignedIn(User) && User.IsInRole("Admin")){
+                <a asp-action="Create" class="confirm-button">Add Product</a>
+ }
+            </p>
+            <div class="gallery">
+                @foreach (var product in Model)
+                {
+                    <div class="gallery-item" tabindex="0">
+                        <img src="data:image;base64,@product.ArtImage" class="gallery-image" alt="" width="510px" height="400px">
+                            <div class="gallery-item-info">
+                            <ul>
+                                <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i>Art Work Name: @Html.DisplayFor(modelItem => product.ArtName)</li>
+                                <br>
+                                <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i>Artisan: @product.ArtCreatorName</li> 
+                                <br>
+                                <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i>Price: @product.ArtPrice</li>
+                                <br>
+                                <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i>Category: @product.ArtCategory</li>
+                                <br>
+                                <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i>Availability:
+                                    @if (product.ArtAvailability)
+                                    {
+                                        <span>In Stock</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Out of Stock</span>
+                                    }
+                                </li>
+                            </ul>
+                            <div>
+                                <a asp-action="Order" asp-route-id="@product.ArtId" class="btn btn-primary">Order</a> <!-- Order button -->
+                            </div>
+                        </div>
+                        <div>
+ @if(SignInManager.IsSignedIn(User) && User.IsInRole("Admin")){
+                            <a asp-action="Edit" asp-route-id="@product.ArtId">Edit</a> 
+                            <a asp-action="Details" asp-route-id="@product.ArtId">Details</a> 
+                            <a asp-action="Delete" asp-route-id="@product.ArtId">Delete</a>
+}
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="loader"></div>
+        </div>
+    </main>
+
+</body>
+</html>
+
+@section Scripts {
+
+}

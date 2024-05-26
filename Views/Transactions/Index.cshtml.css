@@ -1,0 +1,18 @@
+﻿
+
+.deleteBtn {
+    border: none;
+    background: none;
+    color: black;
+    transition-duration: 0.4s;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+    .deleteBtn ion-icon {
+        vertical-align: middle;
+    }
+
+    .deleteBtn:hover {
+        color: red;
+    }

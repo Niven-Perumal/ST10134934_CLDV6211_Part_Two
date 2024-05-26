@@ -1,0 +1,105 @@
+﻿@model ST10134934_CLDV6211_Part_Two.ViewModels.TransactionHistoryViewModel
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Transaction History";
+
+}
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{
+    <h1>All User Transaction History</h1>
+}
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("User"))
+{
+    <h1>All Your Purchase History</h1>
+}
+
+<form asp-action="TransactionHistory" method="get">
+    <div class="form-group">
+        <lable for="FilterArtId">Art work ID:</lable>
+        <input type="text" asp-for="FilterArtId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <lable for="FilterKuserId">User ID:</lable>
+        <input type="text" asp-for="FilterKuserId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <lable for="FilterOrderDate">Order Date (Optional):</lable>
+        <input type="date" asp-for="FilterOrderDate" class="form-control" />
+    </div>
+   <!-- <div class="form-group">
+        <lable for="FilterDeliveryDate">Delivery Date:</lable>
+        <input type="date" asp-for="FilterDeliveryDate" class="form-control" />
+    </div>
+    -->
+    <button type="submit" class="btn btn-primary">Search</button>
+
+</form>
+
+@{
+    bool formSubmitted = !string.IsNullOrEmpty(Context.Request.Query["FilterArtId"].ToString()) ||
+                         !string.IsNullOrEmpty(Context.Request.Query["FilterKuserId"].ToString()) ||
+                         !string.IsNullOrEmpty(Context.Request.Query["FilterOrderDate"].ToString()) ||
+                         !string.IsNullOrEmpty(Context.Request.Query["FilterDeliveryDate"].ToString());
+}
+
+
+@if (formSubmitted)
+{
+
+@if (Model.Transactions.Any() )
+{
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Art Work Id</th>
+              @*   <th>Art Work Name</th>
+                <th>Art Work Price</th> *@
+
+                <th>||</th>
+
+                <th>User Id</th>
+                <th>User Name</th>
+
+                <th>||</th>
+
+                <th>Transaction Date</th>
+                <th>Delivery Date</th>
+            </tr>
+        </thead>
+
+
+        <thead>
+            @foreach (var item in Model.Transactions)
+            {
+             
+                <tr>
+                    <td>@(item.ArtId != null ? item.ArtId.ToString() : "N/A")</td>
+            @*         <td>@(item.Product != null ? item.Product.ArtName : "N/A")</td>
+                    <td>@(item.Product != null ? item.Product.ArtPrice.ToString() : "N/A")</td> *@
+
+                    <td>||</td>
+
+                    <td>@(item.Kuser != null ? item.Kuser.KuserId.ToString() : "N/A")</td>
+                    <td>@(item.Kuser != null ? item.Kuser.KuserName : "N/A")</td>
+
+                    <td>||</td>
+
+                    <td>@item.TransactionDate.ToShortDateString()</td>
+                    <td>@item.ModifiedDate.ToShortDateString()</td>
+                </tr>
+            }
+
+        </thead>
+    </table>
+
+}
+else
+{
+    <p>No Transaction history found based on your filters.</p>
+}
+
+}

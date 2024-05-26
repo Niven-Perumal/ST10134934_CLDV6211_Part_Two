@@ -1,0 +1,94 @@
+﻿@model ST10134934_CLDV6211_Part_Two.ViewModels.TransactionProductViewModel
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{<h1> Process customers orders</h1> }
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("User"))
+{
+<h1>Your Cart</h1>
+}
+
+<!--
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create"><ion-icon class="deleteBtn" name="arrow-forward-outline"></ion-icon></a>
+    </p>
+}
+-->
+
+<table class="table">
+    <thead>
+        <tr>
+   <!--         <th>Transaction Id</th>
+            <th>Product Id</th>
+            <th>User Name</th>
+-->
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+            <th>User Purchasing product</th>
+                    }
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Order Status</th>
+            <th></th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model.Transactions)
+        {
+            <tr>
+        <!--    <td>@Html.DisplayFor(modelItem => transaction.TransactionId)</td>
+                <td>@Html.DisplayFor(modelItem => transaction.ArtId)</td>
+                <td>@Html.DisplayFor(modelItem => transaction.Kuser.KuserName)</td>
+                <td>@Html.DisplayFor(modelItem => transaction.Kuser.KuserName)</td>
+-->
+                @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                {
+                <td>@Html.DisplayFor(modelItem => transaction.Kuser.KuserName)</td>
+                }
+                @foreach (var product in Model.Products)
+                {
+                    @if (product.ArtId == transaction.ArtId)
+                    {
+                        <td><img src="data:image;base64,@product.ArtImage" class="gallery-image" alt="" width="100px" height="100px"></td>
+                        <td>@Html.DisplayFor(modelItem => product.ArtName)</td>
+                        <td>@Html.DisplayFor(modelItem => product.ArtPrice)</td>
+                        break;
+                    }
+                }
+
+
+                <td>@Html.DisplayFor(modelItem => transaction.ArtStatus)</td>
+
+
+                <td>
+                    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@transaction.TransactionId"><ion-icon class="deleteBtn" name="pencil-outline"></ion-icon></a>
+                        <a asp-action="Details" asp-route-id="@transaction.TransactionId"><ion-icon class="deleteBtn" name="eye-outline"></ion-icon></a>
+                        <form method="post" asp-action="Process" asp-route-id="@transaction.TransactionId">
+                            <button type="submit" class="deleteBtn"><ion-icon name="arrow-forward-outline"></ion-icon></button>
+                        </form>
+
+                    }
+                    <a asp-action="Delete" asp-route-id="@transaction.TransactionId"><ion-icon class="deleteBtn" name="trash-outline"></ion-icon></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

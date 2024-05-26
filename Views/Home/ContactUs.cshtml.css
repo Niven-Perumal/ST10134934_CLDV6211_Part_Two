@@ -1,0 +1,160 @@
+﻿
+.form {
+    box-shadow: 0px 4px 20px 0px rgba(77, 166, 186, 0.38);
+    border-radius: 20px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 30px 35px 30px;
+    box-sizing: border-box;
+}
+
+.header-logo {
+    margin: 0 0.3px 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    box-sizing: border-box;
+}
+
+.happy-bunch-avatar {
+    background: url('https://fn12.com/api/clusters/cluster-fn12-prod-europe-west1/trialprojects/trial-XJQKxCJTzRtg9pDrcciiiv/assets/images/c0ee09c8fa7b4ae7297e2f0602ddb8e371859328?Expires=1711971626&KeyName=fn12-cdn&Signature=khQ9fEYECLHVFxaw3Q5mGdAlp6E=') 50% / contain no-repeat;
+    margin: 0 0 4px 0.3px;
+    width: 104px;
+    height: 65px;
+}
+
+.send-us-a-message {
+    overflow-wrap: break-word;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--black, #030102);
+}
+
+.textStyle {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.input-label {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.full-name {
+    margin-bottom: 10px;
+    display: inline-block;
+    align-self: flex-start;
+    overflow-wrap: break-word;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--black, #030102);
+}
+
+.text-fields {
+    border-radius: 10px;
+    background: #E2E6EE;
+    width: 300px;
+    height: 40px;
+}
+
+
+
+.input-Email {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.email {
+    margin-bottom: 10px;
+    display: inline-block;
+    align-self: flex-start;
+    overflow-wrap: break-word;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--black, #030102);
+}
+
+.text-fields-1 {
+    border-radius: 10px;
+    background: #E2E6EE;
+    width: 300px;
+    height: 40px;
+}
+
+.input-label-2 {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.message {
+    margin-bottom: 10px;
+    display: inline-block;
+    align-self: flex-start;
+    overflow-wrap: break-word;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--black, #030102);
+}
+
+.text-fields-3 {
+    border-radius: 10px;
+    background: #E2E6EE;
+    width: 300px;
+    height: 144px;
+    resize:none;
+}
+
+.confirm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.confirm-button {
+    color: black;
+    transition-duration: 0.4s;
+    background-color: cornflowerblue;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 30%;
+    height: 100%;
+}
+
+    .confirm-button:hover {
+        background-color: limegreen;
+        color: white;
+    }
+
+
+
+.you-verify-that-this-info-is-correct {
+    margin-right: 0.1px;
+    overflow-wrap: break-word;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--black, #030102);
+}
